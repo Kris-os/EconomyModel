@@ -1,0 +1,30 @@
+﻿@using EconomyModel.Data;
+@using EconomyModellingEngine;
+@using Microsoft.Extensions.Logging
+@inject ILogger<MyForm> Logger
+
+<EditForm Model="@economyModelInputs" OnSubmit="@HandleSubmit">
+    <br/>
+    <InputNumber id="inputNumber" @bind-Value="economyModelInputs.InputNumber" class="form-control" />
+    <br />
+    <InputNumber id="inputNumber2" @bind-Value="economyModelInputs.InputNumber2" class="form-control" />
+    <br />
+     
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+    <p>The result is: @_output?.Output</p>
+</EditForm>
+
+@code {
+    private EconomyModelInputs economyModelInputs = new();
+
+    private EconomyModelOutput? _output;
+
+    private void HandleSubmit()
+    {
+        Logger.LogInformation("HandleSubmit called");
+
+        _output = EconomyModellingEngine.EconomyModel.RunEconomyModelling(economyModelInputs);
+        // Process the form
+    }
+}
