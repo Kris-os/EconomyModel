@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EconomyModel", "EconomyModel\EconomyModel.csproj", "{1A4443E5-219F-48E5-81C4-784F00DB197D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EconomyModel", "EconomyModel\EconomyModel.csproj", "{1A4443E5-219F-48E5-81C4-784F00DB197D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EconomyModellingEngine", "EconomyModellingEngine\EconomyModellingEngine.csproj", "{6A19B2A5-A029-4C30-AD31-A58535447356}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EconomyModellingEngine", "EconomyModellingEngine\EconomyModellingEngine.csproj", "{6A19B2A5-A029-4C30-AD31-A58535447356}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,10 @@
+﻿<h3>NecessaryAndLuxury</h3>
+
+<p>Necessary: @NecessaryAndLuxuryField?.Necessary</p>
+<p>Luxury: @NecessaryAndLuxuryField?.Luxury</p>
+<br/>
+
+@code {
+    [Parameter]
+    public EconomyModellingEngine.Domain.NecessaryAndLuxury? NecessaryAndLuxuryField { get; set; }
+}

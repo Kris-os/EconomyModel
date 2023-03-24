@@ -1,8 +1,8 @@
 ﻿@using System.Text.Json;
-@using EconomyModel.Data;
 @using EconomyModellingEngine;
+@using EconomyModellingEngine.Domain;
 @using Microsoft.Extensions.Logging
-@inject ILogger<MyForm> Logger
+@inject ILogger<EconomyModelPage> Logger
 
 <EditForm Model="@economyModelInputs" OnSubmit="@HandleSubmit">
     <br/>
@@ -13,7 +13,8 @@
      
     <button type="submit" class="btn btn-primary">Submit</button>
 
-    <p>The result is: @JsonSerializer.Serialize(_output?.Output, Options)</p>
+    <EconomyModel.Components.NecessaryAndLuxury NecessaryAndLuxuryField="@_output?.Output[0].PeopleResults[0].StockPileAtEnd" />
+    @*<p>The result is: @JsonSerializer.Serialize(_output?.Output, Options)</p>*@
 </EditForm>
 
 @code {
@@ -21,15 +22,15 @@
         {
             WriteIndented = true,
     };
-    private EconomyModelInputs economyModelInputs = new();
+    private Data.EconomyModelInputs economyModelInputs = new();
 
     private EconomyModelOutput? _output;
 
+
     private void HandleSubmit()
     {
-        Logger.LogInformation("HandleSubmit called");
+        //Logger.LogInformation("HandleSubmit called");
 
         _output = EconomyModellingEngine.EconomyModelApi.RunEconomyModelling(economyModelInputs);
-        // Process the form
     }
 }
