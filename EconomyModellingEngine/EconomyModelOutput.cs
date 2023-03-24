@@ -2,10 +2,10 @@
 
 public class EconomyModelOutput
 {
-    public EconomyModelOutput(double output)
+    public EconomyModelOutput(List<EconomyModelOutputPerTick> output)
     {
         Output = output;
     }
 
-    public double Output { get; }
+    public List<EconomyModelOutputPerTick> Output { get; }
 }
