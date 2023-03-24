@@ -1,0 +1,10 @@
+﻿@using EconomyModellingEngine;
+<h5>Person</h5>
+
+<NecessaryAndLuxury NecessaryAndLuxuryField="@PersonOutputPerTick.StockPileAtEnd"/>
+
+@code {
+    [EditorRequired]
+    [Parameter]
+    public PersonOutputPerTick PersonOutputPerTick { get; set; } = null!;
+}

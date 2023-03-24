@@ -1,10 +1,11 @@
-﻿<h3>NecessaryAndLuxury</h3>
+﻿<h5>NecessaryAndLuxury</h5>
 
-<p>Necessary: @NecessaryAndLuxuryField?.Necessary</p>
-<p>Luxury: @NecessaryAndLuxuryField?.Luxury</p>
+<p>Necessary: @NecessaryAndLuxuryField.Necessary</p>
+<p>Luxury: @NecessaryAndLuxuryField.Luxury</p>
 <br/>
 
 @code {
+    [EditorRequired]
     [Parameter]
-    public EconomyModellingEngine.Domain.NecessaryAndLuxury? NecessaryAndLuxuryField { get; set; }
+    public EconomyModellingEngine.Domain.NecessaryAndLuxury NecessaryAndLuxuryField { get; set; }
 }

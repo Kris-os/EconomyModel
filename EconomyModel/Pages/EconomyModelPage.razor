@@ -5,15 +5,24 @@
 @inject ILogger<EconomyModelPage> Logger
 
 <EditForm Model="@economyModelInputs" OnSubmit="@HandleSubmit">
-    <br/>
-    <InputNumber id="inputNumber" @bind-Value="economyModelInputs.InputNumber" class="form-control" />
     <br />
-    <InputNumber id="inputNumber2" @bind-Value="economyModelInputs.InputNumber2" class="form-control" />
+    <div class="form-group">
+        <label for="inputNumber">Number of people</label>
+        <InputNumber id="inputNumber" @bind-Value="economyModelInputs.InputNumber" class="form-control" />
+    </div>
     <br />
-     
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="form-group">
+        <label for="inputNumber2">Number of ticks</label>
+        <InputNumber id="inputNumber2" @bind-Value="economyModelInputs.InputNumber2" class="form-control" />
+    </div>
+    <br />
 
-    <EconomyModel.Components.NecessaryAndLuxury NecessaryAndLuxuryField="@_output?.Output[0].PeopleResults[0].StockPileAtEnd" />
+    <button type="submit" class="btn btn-primary">Submit</button>
+    @if (_output != null)
+    {
+        <EconomyModel.Components.EconomyModelOutput _economyModelResults="@_output" />
+    }
+    @*<EconomyModel.Components.NecessaryAndLuxury NecessaryAndLuxuryField="@_output?.Output[0].PeopleResults[0].StockPileAtEnd" />*@
     @*<p>The result is: @JsonSerializer.Serialize(_output?.Output, Options)</p>*@
 </EditForm>
 
@@ -21,7 +30,7 @@
     private JsonSerializerOptions Options = new()
         {
             WriteIndented = true,
-    };
+        };
     private Data.EconomyModelInputs economyModelInputs = new();
 
     private EconomyModelOutput? _output;

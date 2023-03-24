@@ -1,6 +1,16 @@
-﻿<h3>EconomyModelOutput</h3>
+﻿<h3>Results</h3>
 
+<div class="container text-center">
+    <div class="row">
+        @foreach (var person in _economyModelResults.Output[0].PeopleResults)
+        {
+            <div class="col-md-3 card">  <PersonOutput PersonOutputPerTick="@person.Value"/></div>
+        }
+    </div>
+</div>
 
 @code {
-
+    [EditorRequired]
+    [Parameter]
+    public EconomyModellingEngine.EconomyModelOutput _economyModelResults { get; set; } = null!;
 }
