@@ -4,20 +4,27 @@ namespace EconomyModellingEngine;
 
 public class EconomyModelOutputPerTick
 {
-    public EconomyModelOutputPerTick(IReadOnlyDictionary<long, PersonOutputPerTick> peopleResults)
+    public EconomyModelOutputPerTick(IReadOnlyDictionary<long, PersonOutputPerTick> peopleResults, double marketPrice,
+        NecessaryAndLuxury marketMakerStockpile)
     {
         PeopleResults = peopleResults;
+        MarketPrice = marketPrice;
+        MarketMakerStockpile = marketMakerStockpile;
     }
 
     public IReadOnlyDictionary<long, PersonOutputPerTick> PeopleResults { get; }
+    public double MarketPrice { get; }
+    public NecessaryAndLuxury MarketMakerStockpile { get; }
 }
 
 public class PersonOutputPerTick
 {
-    public PersonOutputPerTick(NecessaryAndLuxury stockPileAtEnd)
+    public PersonOutputPerTick(int necessaryStockPileAtEnd, NecessaryAndLuxury consumption)
     {
-        StockPileAtEnd = stockPileAtEnd;
+        NecessaryStockPileAtEnd = necessaryStockPileAtEnd;
+        Consumption = consumption;
     }
 
-    public NecessaryAndLuxury StockPileAtEnd { get; }
+    public int NecessaryStockPileAtEnd { get; }
+    public NecessaryAndLuxury Consumption { get; }
 }

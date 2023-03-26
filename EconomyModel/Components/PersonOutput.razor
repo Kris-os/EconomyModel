@@ -1,7 +1,11 @@
 ﻿@using EconomyModellingEngine;
 <h5>Person</h5>
 
-<NecessaryAndLuxury NecessaryAndLuxuryField="@PersonOutputPerTick.StockPileAtEnd"/>
+
+<p>Necessary stockpile: @PersonOutputPerTick.NecessaryStockPileAtEnd</p>
+
+<p>Consumption:</p>
+<NecessaryAndLuxury NecessaryAndLuxuryField="@PersonOutputPerTick.Consumption" />
 
 @code {
     [EditorRequired]
